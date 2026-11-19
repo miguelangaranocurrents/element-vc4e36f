@@ -89,10 +89,13 @@ export function EditMessageComposerWrapper(props: IEditMessageComposerProps): JS
         />
     );
 
+    // Render the previews and the composer as siblings: the composer must be a direct
+    // child of the event-tile body slot so its `overflow: visible` (needed for the
+    // formatting bar and the autocomplete) wins over the slot's clipping.
     return (
-        <div>
+        <>
             <MessageComposerUrlPreviewWrapper urlPreviewVm={vm} />
             {editor}
-        </div>
+        </>
     );
 }

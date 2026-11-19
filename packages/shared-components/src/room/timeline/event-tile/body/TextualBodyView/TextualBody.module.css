@@ -45,6 +45,14 @@
     display: inline-flex;
 }
 
+/* The body shares its flex container with the edited marker. Without an explicit
+   min-width its automatic minimum size (min-content) keeps a wide code block from
+   shrinking, widening the whole message out of the viewport. */
+.annotated > *,
+.annotatedInline > * {
+    min-width: 0;
+}
+
 .annotation {
     user-select: none;
     display: inline-block;
